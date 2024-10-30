@@ -1,6 +1,3 @@
-# Creating a README.md file with the provided content for the WhySee project.
-
-readme_content = """
 # WhySee - Real-Time Directory for Startups
 
 **WhySee** is a dynamic web platform that connects entrepreneurs, investors, and enthusiasts with a comprehensive directory of startups. It enables founders to publish their pitches, allows users to discover new ventures, and facilitates engagement in real time. The platform's mission is to create a vibrant ecosystem where startups can thrive, share their ideas, and connect with potential supporters and collaborators.
