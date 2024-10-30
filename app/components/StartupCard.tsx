@@ -37,7 +37,7 @@ const StartupCard = ({ post }: {post: StartupCardType}) => {
                               </Link>
                         </div>
 
-                        <Link href = {`/user/${founder._id}`}>
+                        <Link href = {`/user/${founder?._id}`}>
                               <Image 
                                     src = "https://placehold.co/600x400" 
                                     alt = "Founder Icon"

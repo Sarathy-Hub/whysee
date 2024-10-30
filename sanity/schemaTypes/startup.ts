@@ -31,7 +31,7 @@ export const startup = defineType({
             }),
 
             defineField({
-                  name: 'desription',
+                  name: 'description',
                   type: 'text'
             }),
 

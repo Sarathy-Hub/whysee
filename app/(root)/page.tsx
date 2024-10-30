@@ -1,5 +1,7 @@
+import { STARTUPS_QUERY } from "@/sanity/lib/queries";
 import SearchForm from "../components/SearchForm";
 import StartupCard from "../components/StartupCard";
+import { client } from "@/sanity/lib/client";
 
 export default async function Home( {searchParams}: {
   searchParams: Promise<{ query?: string}>
@@ -9,19 +11,22 @@ export default async function Home( {searchParams}: {
 
   const query = (await searchParams).query
 
-  const posts = [
-    {
-      _createdAt: new Date(),
-      views: 19,
-      founder: { _id: 1, name: 'Saranya Sarathy'},
-      _id: 1,
-      description: 'This is a sample description of the startup',
-      image: "https://static.vecteezy.com/system/resources/previews/014/393/969/non_2x/startup-success-arrow-cursor-up-right-direction-overlap-overlapping-colorful-logo-design-vector.jpg",
+  const posts = await client.fetch(STARTUPS_QUERY)
+  console.log(posts)
 
-      category: "Robots",
-      title: "We Robots"
-    }
-  ]
+  // const posts = [
+  //   {
+  //     _createdAt: new Date(),
+  //     views: 19,
+  //     founder: { _id: 1, name: 'Saranya Sarathy'},
+  //     _id: 1,
+  //     description: 'This is a sample description of the startup',
+  //     image: "https://static.vecteezy.com/system/resources/previews/014/393/969/non_2x/startup-success-arrow-cursor-up-right-direction-overlap-overlapping-colorful-logo-design-vector.jpg",
+
+  //     category: "Robots",
+  //     title: "We Robots"
+  //   }
+  // ]
 
   return (
     <>
