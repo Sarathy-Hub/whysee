@@ -4,6 +4,9 @@ import { EyeIcon } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
+import { Founder, Startup } from "@/sanity/types"
+
+export type StartupCardType = Omit<Startup, "founder"> & { founder?: Founder}
 
 const StartupCard = ({ post }: {post: StartupCardType}) => {
 
@@ -57,7 +60,7 @@ const StartupCard = ({ post }: {post: StartupCardType}) => {
                   </Link>
 
                   <div className="flex-between gap-3 mt-5 group-hover:text-white">
-                        <Link href = {`/query=${category.toLowerCase()}`}>
+                        <Link href = {`/query=${category?.toLowerCase()}`}>
                               <p className="text-16-medium group-hover:text-white">{category}</p>
                         </Link>
 
