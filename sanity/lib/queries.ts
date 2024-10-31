@@ -16,3 +16,23 @@ export const STARTUPS_QUERY = defineQuery(
             image
       }`
 )
+
+export const FIND_STARTUP_BY_ID = defineQuery(
+      `*[_type == "startup" && _id == $id][0] {
+          _id,
+          title,
+          slug,
+          _createdAt,
+          founder -> {
+            _id,
+            name,
+            image,
+            username
+          },
+          description,
+          category,
+          image,
+          views,
+          pitch
+      }`
+)
