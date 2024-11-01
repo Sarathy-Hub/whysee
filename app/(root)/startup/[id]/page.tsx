@@ -1,3 +1,4 @@
+import { Suspense } from "react"
 import { formatDate } from "@/lib/utils"
 import { client } from "@/sanity/lib/client"
 import { FIND_STARTUP_BY_ID } from "@/sanity/lib/queries"
@@ -7,6 +8,8 @@ import Link from "next/link"
 import Image from "next/image"
 
 import markdownit from "markdown-it"
+import { Skeleton } from "@/components/ui/skeleton"
+import View from "@/app/components/View"
 
 const md = markdownit()
 
@@ -88,6 +91,13 @@ const page = async ( { params }: { params: Promise<{ id: string }>} ) => {
                         </div>
 
                         <hr className = "divider"/>
+
+                        {/* TODO: Editors Choice of Startups */}
+
+                        <Suspense fallback = {<Skeleton className = "view_skeleton"/>}>
+                              <View id = {id}/>
+                        </Suspense>
+
                   </section>
                   
             </>
