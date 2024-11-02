@@ -11,6 +11,7 @@ import { formSchema } from '@/lib/validation'
 import { z } from 'zod'
 import { useToast } from '@/hooks/use-toast'
 import { useRouter } from 'next/navigation'
+import { createPitch } from '@/lib/actions'
 
 const StartupForm = () => {
 
@@ -35,7 +36,18 @@ const StartupForm = () => {
 
                   await formSchema.parseAsync(formValues)
 
-                  console.log(formValues)
+                  const result = await createPitch(prevState, formData, pitch)
+
+                  if (result.status == 'SUCCESS') {
+                        toast({
+                              title: "Success",
+                              description: 'Startup has been created successfully'
+                        })
+
+                        router.push(`/startup/${result._id}`)
+                  }
+
+                  return result
 
             } catch (error) {
 
